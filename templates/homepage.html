@@ -1,0 +1,49 @@
+{% extends 'loggedin_layout.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block page_info %}
+<h2>Home Page</h2>
+<p>Welcome, {{ username }}!</p>
+<label>Your roommate feed:</label>
+<form method="post" action="{{ url_for('homepage')}}">
+  <select name="sort-feed" id="sort-feed" onchange="this.form.submit()">
+    <option disabled selected value> -- Sort Feed -- </option>
+    <option value="alphabetical">Alphabetical</option>
+    <option value="most-recent">Most Recent</option>
+    <option value="old-to-young">Oldest-to-Youngest</option>
+    <option value="young-to-old">Youngest-to-Oldest</option>
+  </select>
+  <!-- <input type="submit" value="Sort Feed"> -->
+</form>
+
+<label>Filter results:</label>
+<form method="post" action="{{ url_for('homepage') }}">
+  <select multiple name="filter-feed" id="filter-feed" onchange="this.form.submit()">
+    <optgroup label="Gender">
+      <option value="female">Female</option>
+      <option value="male">Male</option> 
+    </optgroup>
+    <optgroup label="Age Range">
+      <option value="0-17">0-17</option>
+      <option value="18-22">18-22</option>
+      <option value="23-30">23-30</option>
+      <option value="31+">31+</option>
+    </optgroup>
+
+  </select>
+</form>
+
+
+
+<ul>
+  {% for row in entries %}
+  {{ row['username'] }}
+  <li>{{ row['age'] }}</li>
+  <li>{{ row['gender'] }}</li>
+  <li>{{ row['major'] }}</li>
+  <li>{{ row['description'] }}</li>
+  <br>
+  {% endfor %} 
+</ul>
+{% endblock %}

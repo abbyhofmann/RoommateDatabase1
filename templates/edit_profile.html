@@ -1,0 +1,80 @@
+<!-- <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Edit Profile</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='roommateStyle.css?v=1.5') }}"/>
+    </head>
+    <body>
+      <div class="loggedin_layout">
+        <h1>Edit Profile</h1>
+        <div class="links">
+          <a href="{{ url_for('homepage') }}">Homepage</a>
+          <a href="{{ url_for('view_profile') }}">Your Profile</a>
+          <a href="{{ url_for('edit_profile') }}" class="active">Edit Profile</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        <form action="{{ url_for('edit_profile') }}" method="post" >
+          
+            <input type="text" name="username" value="{{ user['username'] }}" id="username" required>
+            
+            <input type="password" name="password" value="{{ user['password'] }}" id="password" required>
+  
+            <input type="email" name="email" value="{{ user['email'] }}" id="email" required>  
+  
+            <input type="age" name="age" value="{{ user['age'] }}" id="age" required>
+  
+            <input type="gender" name="gender" value="{{ user['gender'] }}" id="gender" requred> 
+  
+            <input type="major" name="major" value="{{ user['major'] }}" id="major" required>
+  
+            <input type="description" name="description" value="{{ user['description'] }}" id="description" required>
+
+            <div class="msg">{{ msg }}</div>
+            
+            <input type="submit" value="Update"> 
+          </form>
+      </div>
+    </body>
+  </html> -->
+
+{% extends 'loggedin_layout.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block page_info %}
+<h2>Edit Profile</h2>
+<form action="{{ url_for('edit_profile') }}" method="post" >
+  <label>Username:</label>      
+  <input type="text" name="username" value="{{ user['username'] }}" id="username" required>
+  <br><br>
+
+  <label>Password:</label>
+  <input type="password" name="password" value="{{ user['password'] }}" id="password" required>
+  <br><br>
+
+  <label>Email:</label>
+  <input type="email" name="email" value="{{ user['email'] }}" id="email" required>  
+  <br><br>
+
+  <label>Age:</label>
+  <input type="age" name="age" value="{{ user['age'] }}" id="age" required>
+  <br><br>
+
+  <label>Gender:</label>
+  <input type="gender" name="gender" value="{{ user['gender'] }}" id="gender" requred> 
+  <br><br>
+
+  <label>Major:</label>
+  <input type="major" name="major" value="{{ user['major'] }}" id="major" required>
+  <br><br>
+
+  <label>Description:</label>
+  <input type="description" name="description" value="{{ user['description'] }}" id="description" required>
+  <br><br>
+
+  <div class="msg">{{ msg }}</div>
+  <br>
+  
+  <input type="submit" value="Update"> 
+</form>
+{% endblock %}

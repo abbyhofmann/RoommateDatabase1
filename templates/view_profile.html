@@ -1,0 +1,45 @@
+<!-- <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Your Profile</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='roommateStyle.css?v=1.4') }}"/>
+    </head>
+    <body>
+      <div class="loggedin_layout">
+        <h1>Your Profile</h1>
+        <div class="links">
+          <a href="{{ url_for('homepage') }}">Homepage</a>
+          <a href="{{ url_for('view_profile') }}" class="active">Your Profile</a>
+          <a href="{{ url_for('edit_profile') }}">Edit Profile</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+        <div class="view_profile">
+            <p>{{ user['username'] }}, here is your current account information:</p>
+            <p>username: {{ user['username'] }}</p>
+            <p>password: {{ user['password'] }}</p>
+            <p>email address: {{ user['email'] }}</p>
+            <p>age: {{user['age'] }}</p>
+            <p>gender: {{user['gender'] }}</p>
+            <p>major: {{user['major'] }}</p>
+            <p>description: {{user['description'] }}</p>
+        </div>
+      </div>
+    </body>
+  </html> -->
+
+
+{% extends 'loggedin_layout.html' %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block page_info %}
+<h2>Your Profile</h2>
+<p>{{ user['username'] }}, here is your current account information:</p>
+<p>username: {{ user['username'] }}</p>
+<p>password: {{ user['password'] }}</p>
+<p>email address: {{ user['email'] }}</p>
+<p>age: {{ user['age'] }}</p>
+<p>gender: {{ user['gender'] }}</p>
+<p>major: {{ user['major'] }}</p>
+<p>description: {{ user['description'] }}</p>
+{% endblock %}

@@ -1,0 +1,130 @@
+<!-- <style>
+  * {
+    box-sizing: border-box;
+  }
+  *:focus {
+    outline: none;
+  }
+  body {
+    font-family: Arial;
+    background-color: #FF1800;
+    padding: 50px;
+  }
+  .login {
+    margin: 20px auto;
+    width: 300px;
+  }
+  .login-screen {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px
+  }
+  .app-title {
+    text-align: center;
+    color: #777;
+  }
+  .login-form {
+    text-align: center;
+  }
+  .control-group {
+    margin-bottom: 10px;
+  }
+  input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+  }
+  input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+  }
+  .btn {
+    border: 2px solid transparent;
+    background: #C2A6A2;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+  }
+  .btn:hover {
+    background-color: #E55423;
+  }
+  .login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 12px;
+  } 
+  .register {
+    font-size: 12px; 
+    color: #444; 
+    text-align: center;
+  } 
+</style> -->
+
+
+<!-- <title>Login</title>
+
+<div class="login">
+  <div class="login-screen">
+    <div class="app-title">
+      <h1>Roomate Search</h1>
+      <h2>LOGIN</h2>
+    </div>
+    <div class="login-form">
+      <form action="{{ url_for('login') }}" method="post">
+        <div class="control-group">
+          <input type="text" placeholder="username" name="username" id="username" required>
+        </div>
+        <div class="control-group">
+          <input type="password" placeholder="password" name="password" id="password" required>
+        </div>
+        <div class="msg">{{ msg }}</div> 
+        <input type="submit" value="Login" class="btn btn-primary btn-large btn-block">
+      </form>
+    </div>
+    <div class="register">
+      <h3><a href="register_page.html">New? Register</a></h3>
+    </div>
+  </div>
+</div> -->
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='roommateStyle.css?v=1.6') }}"/>
+	</head>
+	<body>
+		<div class="login">
+			<h1>Login</h1>
+			<div class="links">
+				<a href="{{ url_for('login') }}" class="active">Login</a>
+				<a href="{{ url_for('register') }}">Register</a>
+			</div>
+			<form action="{{ url_for('login') }}" method="post">
+				
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<div class="msg">{{ msg }}</div>
+				<input type="submit" value="Login">
+			</form>
+		</div>
+	</body>
+</html>
+
